@@ -9,7 +9,7 @@ You will need to create an agent that with the following capabilities:
 You should make use of Python
 
 1. main.py: The main script to run the agent, this program should take an arg of course_code to specify which course to process and open the corresponding directories, for explain if the user input CS231, the folder should handle all files under `CS231/lecture_notes/`, `CS231/past_papers/` and `CS231/assignment/question/`
-2. pdf_to_text.py: the module to convert pdf/ files to text, jusify using pdf to image then OCR to extract text or direct text to pdf is better
+2. file_to_md.py: the module to convert pdf/ppt/pptx/doc/docx files to text, jusify using pdf to image then OCR to extract text or direct text to pdf is better
 3. agent.py: the module that contains the agent implementation, include the logic to check the cheat sheet coverage for lecture notes and past papers, make use of the OpenAI library to call LLM api
 
 Put all setting under the `.env` file, including paths to directories and files, API keys, url and the model_name of LLM used, you should specific different AI model for different tasks, e.g., use gpt-5-mini for text extraction from pdf, and gpt-5 for checking coverage, you should also included a field of params for each model to specify the temperature, max_tokens, etc, it should be in json format string.
@@ -17,7 +17,7 @@ Put all setting under the `.env` file, including paths to directories and files,
 Input: 
 `{course}/cheatsheet.md` or `{course}/cheatsheet.pdf`: The cheat sheet file that need to be evaluated
 `{course}/lecture_notes/`: Directory containing lecture notes in .pdf or .ppt or .pptx format
-`{course}/past_papers/`: Directory containing past exam papers in .pdf or .doc format
+`{course}/past_papers/`: Directory containing past exam papers in .pdf or .doc or .docx format
 `{course}/assignment/question/`: Directory containing assignment questions in .md or .pdf or .doc format
 
 Output:
