@@ -9,7 +9,7 @@ You will need to create an agent that with the following capabilities:
 You should make use of Python
 
 1. main.py: The main script to run the agent, this program should take an arg of course_code to specify which course to process and open the corresponding directories, for explain if the user input CS231, the folder should handle all files under `CS231/lecture_notes/`, `CS231/past_papers/` and `CS231/assignment/question/`
-2. file_to_md.py: the module to convert pdf/ppt/pptx/doc/docx files to text, jusify using pdf to image then OCR to extract text or direct text to pdf is better
+2. file_to_md.py: the module to convert pdf/ppt/pptx/doc/docx files to text, jusify using pdf to image then OCR to extract text or direct text to pdf is better, before convert the file to text, check if there is a existing md file with the same name under the same directory, if yes, just open the md file directly instead of converting again, to save time, if not, convert the file to text and save as a md file under the same directory with the same name.
 3. agent.py: the module that contains the agent implementation, include the logic to check the cheat sheet coverage for lecture notes and past papers, make use of the OpenAI library to call LLM api
 
 Put all setting under the `.env` file, including paths to directories and files, API keys, url and the model_name of LLM used, you should specific different AI model for different tasks, e.g., use gpt-5-mini for text extraction from pdf, and gpt-5 for checking coverage, you should also included a field of params for each model to specify the temperature, max_tokens, etc, it should be in json format string.
